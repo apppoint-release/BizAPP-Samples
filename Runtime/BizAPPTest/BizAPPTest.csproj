@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54E7D273-A82C-4229-85FF-96C5BB65DC62}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizAPPTest</RootNamespace>
+    <AssemblyName>BizAPPTest</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BizAPP.Common">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Common.Aspects">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Common.Aspects.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Common.IO">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Common.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Common.Query">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Common.Query.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Common.Query.XmlSerializers">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Common.Query.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Runtime.Common">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Runtime.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Runtime.Core">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BizAPP.Runtime.ExternalDataSource">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\BizAPP.Runtime.ExternalDataSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Ciloci.Flee">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\Ciloci.Flee.dll</HintPath>
+    </Reference>
+    <Reference Include="ciloci.FormulaEngineEx">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\ciloci.FormulaEngineEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>$(BizAPPInstallPath)\WebClient\Bin\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /y "$(TargetPath)" "$(BizAPPInstallPath)"
+copy /y "$(TargetPath).config" "$(BizAPPInstallPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
