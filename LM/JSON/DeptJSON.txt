@@ -1,7 +1,0 @@
-{
-   "Code": "RND",
-   "Name": "Research and Development",
-   "DepartmentHead": "biocon\\PREGYA",
-   "Company":"biocon",
-   "ParentDeptCode":""
-}
